@@ -6,12 +6,14 @@
 
 using namespace std;
 
+//Return 1 if 0 is input to the function
 int factorial(int n) {
     if(n == 0)
         return 1;
 
     return n * factorial(n - 1);
 }
+
 
 int main() {
     int n;
