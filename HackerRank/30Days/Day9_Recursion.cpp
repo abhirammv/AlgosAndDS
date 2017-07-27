@@ -1,7 +1,6 @@
 //
 // Created by Abhiram MV on 7/26/17.
 //
-#include <bits/stdc++.h>
 #include <iostream>
 
 using namespace std;
