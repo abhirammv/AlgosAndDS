@@ -1,37 +1,72 @@
-//
-// Created by Abhiram MV on 8/1/17.
-//
-
 #include <iostream>
 #include <stack>
 #include <queue>
 
 using namespace std;
 
-int main()
-{
-    queue<int> queue1;
-    stack <int> stack1;
+class Solution {
 
-    queue1.push(8);
-    queue1.push(15);
-    queue1.push(82);
+private:
+    stack <char> myStack;
+    queue <char> myQueue;
 
-    stack1.push(8);
-    stack1.push(15);
-    stack1.push(82);
+public:
+    void pushCharacter(char ch){myStack.push(ch);}
 
-    queue1.pop();
-    queue1.pop();
-    stack1.pop();
-    stack1.pop();
+    void enqueueCharacter(char ch){myQueue.push(ch);}
 
-    cout<<"Queue"<<endl;
-    cout<<queue1.front()<<endl;
+    char popCharacter()
+    {
+        char temp = myStack.top();
+        myStack.pop();
+        return temp;
 
-    cout<<"Stack"<<endl;
-    cout<<stack1.top();
+    }
 
+    char dequeueCharacter()
+    {
+        char temp = myQueue.front();
+        myQueue.pop();
+        return temp;
+    }
+
+
+};
+
+int main() {
+    // read the string s.
+    string s;
+    getline(cin, s);
+
+    // create the Solution class object p.
+    Solution obj;
+
+    // push/enqueue all the characters of string s to stack.
+    for (int i = 0; i < s.length(); i++) {
+        obj.pushCharacter(s[i]);
+        obj.enqueueCharacter(s[i]);
+    }
+
+    bool isPalindrome = true;
+
+    // pop the top character from stack.
+    // dequeue the first character from queue.
+    // compare both the characters.
+    for (int i = 0; i < s.length() / 2; i++) {
+        if (obj.popCharacter() != obj.dequeueCharacter()) {
+            isPalindrome = false;
+
+            break;
+        }
+    }
+
+    // finally print whether string s is palindrome or not.
+    if (isPalindrome) {
+        cout << "The word, " << s << ", is a palindrome.";
+    } else {
+        cout << "The word, " << s << ", is not a palindrome.";
+    }
 
     return 0;
 }
+
