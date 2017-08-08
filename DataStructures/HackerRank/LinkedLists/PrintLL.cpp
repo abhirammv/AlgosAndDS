@@ -8,8 +8,6 @@
      struct Node *next;
   }
 */
-#include <iostream>
-using namespace std;
 
 void Print(Node *head)
 {
